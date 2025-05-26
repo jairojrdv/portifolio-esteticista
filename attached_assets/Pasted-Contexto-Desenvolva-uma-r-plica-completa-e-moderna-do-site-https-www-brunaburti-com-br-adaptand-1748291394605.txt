@@ -1,0 +1,137 @@
+Contexto:
+Desenvolva uma réplica completa e moderna do site https://www.brunaburti.com.br/, adaptando-o como um portfólio profissional para uma esteticista chamada Hadassa.
+O site deve ser funcional, coeso, ter excelente experiência do usuário e seguir as melhores práticas de desenvolvimento front-end, com foco em responsividade e manutenção facilitada.
+
+Especificações Técnicas:
+Tecnologias:
+
+React.js
+
+Tailwind CSS para estilização
+
+Componentes prontos e estilizados com shadcn/ui para manter padrão e facilidade de manutenção.
+
+Ícones do lucide-react.
+
+Animações suaves com Framer Motion.
+
+Design:
+
+Paleta de cores: tons pastéis suaves, como rosa claro, lilás, bege, branco, verde-claro e azul bebê.
+
+Estilo minimalista, elegante, leve e profissional.
+
+Grid-based layout, espaçamento confortável.
+
+Fontes elegantes, legíveis, com destaque para títulos.
+
+Botões e componentes com bordas arredondadas (rounded-2xl), sombras suaves e hover interativos.
+
+Fotos de modelos fictícias para ilustrar o site.
+
+Funcionalidades:
+
+Home: Apresentação de Hadassa, slogan e banner com imagem de modelo.
+
+Sobre: Biografia de Hadassa, missão e valores.
+
+Serviços: Galeria de serviços com imagens e descrições — estética facial, corporal, terapias relaxantes etc.
+
+Depoimentos: Carousel de depoimentos de clientes fictícios.
+
+Galeria: Grid com fotos de procedimentos fictícios.
+
+Agendamento: Formulário funcional para agendamento, com campos básicos (nome, telefone, data e mensagem).
+
+Contato: Seção com telefone, WhatsApp, e-mail e links para redes sociais.
+
+Rodapé: Links rápidos e créditos.
+
+Requisitos de Código:
+
+Modularização: componentes bem separados, organizados por pastas (components, pages, assets, etc).
+
+Responsividade completa: mobile-first, testado para smartphones, tablets e desktops.
+
+Layout inteligente e adaptável.
+
+Código limpo e comentado.
+
+Fácil manutenção e escalabilidade.
+
+SEO-friendly: boa estrutura de headings (<h1>, <h2>, etc).
+
+Utilizar imagens fictícias, de qualidade, como placeholders (unsplash, pexels ou picsum.photos).
+
+Imagens:
+
+Use fotos modelos de estética, bem iluminadas e de qualidade.
+
+Inclua placeholders com links (https://source.unsplash.com) e referências nas instruções.
+
+Padrão de Componentes:
+
+Use exclusivamente shadcn/ui para botões, cards, inputs, carrossel, modais etc.
+
+Estilo consistente em todos os componentes.
+
+Exemplo de componentes essenciais:
+
+<Button /> para chamadas de ação
+
+<Card /> para serviços e depoimentos
+
+<Input /> e <Textarea /> para formulários
+
+<Carousel /> para depoimentos
+
+Extras:
+
+Adicione animações suaves com Framer Motion para entrada de seções.
+
+Utilize react-hook-form para validação do formulário de agendamento.
+
+Ícones personalizados com lucide-react nos botões de contato.
+
+Incluir efeito parallax ou scroll suave.
+
+Estrutura Recomendada de Pastas:
+css
+Copiar
+Editar
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── Footer.jsx
+│   ├── Hero.jsx
+│   ├── About.jsx
+│   ├── Services.jsx
+│   ├── Testimonials.jsx
+│   ├── Gallery.jsx
+│   ├── ContactForm.jsx
+│   └── AppointmentForm.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── About.jsx
+│   ├── Services.jsx
+│   ├── Contact.jsx
+├── assets/
+│   ├── images/
+│   └── icons/
+├── App.jsx
+└── index.js
+Estilo de Copywriting:
+Amigável, acolhedor e profissional.
+
+Foco em confiança, estética e bem-estar.
+
+Textos objetivos, mas delicados.
+
+Observações:
+Garantir total acessibilidade: contraste de cores, navegação por teclado, aria-labels.
+
+Indicar claramente onde substituir as imagens fictícias pelas imagens reais da Hadassa.
+
+Adicionar comentários no código para facilitar manutenção.
+
+Ajustar as dimensões das imagens para melhor performance.
