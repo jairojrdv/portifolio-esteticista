@@ -87,16 +87,16 @@ export default function Gallery() {
       <div className="container mx-auto px-4">
         {/* Título da seção */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Nossa <span className="text-primary">Galeria</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Confira alguns dos nossos trabalhos e resultados alcançados
           </p>
         </div>
 
         {/* Grid responsivo de imagens */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
           {galleryImages.map((image, index) => (
             <div 
               key={index}
@@ -119,18 +119,18 @@ export default function Gallery() {
 
         {/* Call to action */}
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-6">Quer ver mais resultados? Siga nossas redes sociais!</p>
-          <div className="flex justify-center space-x-4">
+          <p className="text-muted-foreground mb-6 text-sm sm:text-base">Quer ver mais resultados? Siga nossas redes sociais!</p>
+          <div className="flex justify-center space-x-3 sm:space-x-4">
             {socialLinks.map((social, index) => (
               <Button
                 key={index}
                 variant="ghost"
                 size="lg"
-                className={`${social.bg} text-white p-4 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
+                className={`${social.bg} text-white p-3 sm:p-4 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
                 onClick={() => window.open(social.url, '_blank')}
                 aria-label={`Seguir no ${social.name}`}
               >
-                <social.icon size={20} />
+                <social.icon size={18} />
               </Button>
             ))}
           </div>

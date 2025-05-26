@@ -84,7 +84,7 @@ export default function AppointmentForm() {
   return (
     <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 shadow-lg border-0 rounded-2xl">
       <CardHeader>
-        <CardTitle className="text-2xl text-gray-800">Agendar Consulta</CardTitle>
+        <CardTitle className="text-xl sm:text-2xl text-foreground">Agendar Consulta</CardTitle>
       </CardHeader>
       <CardContent>
         <Form {...form}>
@@ -96,14 +96,14 @@ export default function AppointmentForm() {
                 name="nome"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-medium text-gray-700">
+                    <FormLabel className="text-sm font-medium text-muted-foreground">
                       Nome Completo *
                     </FormLabel>
                     <FormControl>
                       <Input 
                         {...field}
                         placeholder="Seu nome completo"
-                        className="border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                        className="border-border rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm sm:text-base"
                       />
                     </FormControl>
                     <FormMessage />

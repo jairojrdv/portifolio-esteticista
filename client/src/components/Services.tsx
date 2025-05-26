@@ -58,20 +58,20 @@ export default function Services() {
   };
 
   return (
-    <section id="servicos" className="py-20 bg-gradient-to-br from-baby-blue-soft to-neutral-soft">
+    <section id="servicos" className="py-20 bg-gradient-to-br from-warm-beige to-neutral-soft">
       <div className="container mx-auto px-4">
         {/* Título da seção */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4">
             Nossos <span className="text-primary">Serviços</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Tratamentos personalizados para realçar sua beleza natural com técnicas avançadas
           </p>
         </div>
 
         {/* Grid de serviços */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <Card 
               key={index} 
@@ -86,15 +86,15 @@ export default function Services() {
                   loading="lazy"
                 />
               </div>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
+              <CardContent className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-muted-foreground mb-4 leading-relaxed text-sm sm:text-base">
                   {service.description}
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-primary font-semibold text-lg">
+                  <span className="text-primary font-semibold text-base sm:text-lg">
                     {service.price}
                   </span>
                   <Button
@@ -103,7 +103,7 @@ export default function Services() {
                     className="text-primary hover:text-primary/80 transition-colors p-0"
                     onClick={handleScheduleClick}
                   >
-                    <ArrowRight className="h-5 w-5" />
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
                   </Button>
                 </div>
               </CardContent>
