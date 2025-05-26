@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
@@ -12,22 +12,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Configuração do transporter de email
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
-      user: 'jairo.jr.dev.@gmail.com',
-      pass: process.env.EMAIL_PASS || 'sua-senha-app-aqui'
-    }
+      user: "jairo.jr.dev@gmail.com",
+      pass: process.env.EMAIL_PASS || "cotm omwc hblm aala",
+    },
   });
 
   // Endpoint para receber solicitações de agendamento
-  app.post('/api/appointments', async (req, res) => {
+  app.post("/api/appointments", async (req, res) => {
     try {
       const { nome, telefone, email, data, servico, mensagem } = req.body;
 
       // Validação básica
       if (!nome || !telefone) {
-        return res.status(400).json({ 
-          message: 'Nome e telefone são obrigatórios' 
+        return res.status(400).json({
+          message: "Nome e telefone são obrigatórios",
         });
       }
 
@@ -38,11 +38,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         data: data || null,
         servico: servico || null,
         mensagem: mensagem || null,
-        created_at: new Date().toISOString()
+        created_at: new Date().toISOString(),
       };
 
       // Formatar data para exibição
-      const dataFormatada = data ? new Date(data).toLocaleDateString('pt-BR') : 'Não informada';
+      const dataFormatada = data
+        ? new Date(data).toLocaleDateString("pt-BR")
+        : "Não informada";
 
       // Template do email
       const emailHtml = `
@@ -54,24 +56,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
               <h3 style="color: #6D28D9; margin-top: 0;">📋 Dados do Cliente</h3>
               <p><strong>Nome:</strong> ${nome}</p>
               <p><strong>Telefone:</strong> ${telefone}</p>
-              <p><strong>Email:</strong> ${email || 'Não informado'}</p>
+              <p><strong>Email:</strong> ${email || "Não informado"}</p>
             </div>
 
             <div style="background-color: #f0f9ff; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
               <h3 style="color: #0369A1; margin-top: 0;">📅 Detalhes do Agendamento</h3>
               <p><strong>Data Preferida:</strong> ${dataFormatada}</p>
-              <p><strong>Serviço:</strong> ${servico || 'Não especificado'}</p>
+              <p><strong>Serviço:</strong> ${servico || "Não especificado"}</p>
             </div>
 
-            ${mensagem ? `
+            ${
+              mensagem
+                ? `
             <div style="background-color: #f0fdf4; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
               <h3 style="color: #16A34A; margin-top: 0;">💬 Mensagem</h3>
               <p style="font-style: italic;">"${mensagem}"</p>
             </div>
-            ` : ''}
+            `
+                : ""
+            }
 
             <div style="background-color: #fef3c7; padding: 15px; border-radius: 8px; text-align: center;">
-              <p style="margin: 0; color: #92400E;"><strong>⏰ Recebido em:</strong> ${new Date(appointment.created_at).toLocaleString('pt-BR')}</p>
+              <p style="margin: 0; color: #92400E;"><strong>⏰ Recebido em:</strong> ${new Date(appointment.created_at).toLocaleString("pt-BR")}</p>
             </div>
 
             <div style="text-align: center; margin-top: 30px;">
@@ -86,25 +92,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Enviar email
       await transporter.sendMail({
-        from: process.env.EMAIL_USER || 'noreply@hadassaestetica.com.br',
-        to: 'jairo.jr.dev.@gmail.com',
+        from: process.env.EMAIL_USER || "noreply@hadassaestetica.com.br",
+        to: "jairo.jr.dev.@gmail.com",
         subject: `🌸 Novo Agendamento - ${nome}`,
-        html: emailHtml
+        html: emailHtml,
       });
 
       // Log da solicitação
-      console.log('Nova solicitação de agendamento:', appointment);
+      console.log("Nova solicitação de agendamento:", appointment);
 
       // Resposta de sucesso
-      res.status(200).json({ 
-        message: 'Solicitação de agendamento recebida com sucesso!',
-        data: appointment
+      res.status(200).json({
+        message: "Solicitação de agendamento recebida com sucesso!",
+        data: appointment,
       });
-
     } catch (error) {
-      console.error('Erro ao processar agendamento:', error);
-      res.status(500).json({ 
-        message: 'Erro interno do servidor' 
+      console.error("Erro ao processar agendamento:", error);
+      res.status(500).json({
+        message: "Erro interno do servidor",
       });
     }
   });
