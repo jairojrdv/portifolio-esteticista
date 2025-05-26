@@ -3,6 +3,7 @@ import { MessageCircle, Phone, Mail, MapPin, Clock, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getWhatsAppUrl } from "@/lib/utils";
 import AppointmentForm from "./AppointmentForm";
+import { InstagramIcon, FacebookIcon, TikTokIcon, YouTubeIcon, WhatsAppIcon } from "@/components/ui/social-icons";
 
 /**
  * Componente Contact - Seção de contato e agendamento
@@ -56,25 +57,25 @@ export default function Contact() {
   const socialMedia = [
     { 
       name: "Instagram", 
-      icon: "instagram", 
+      icon: InstagramIcon, 
       url: "#", 
       bg: "bg-gradient-to-br from-pink-500 to-purple-600" 
     },
     { 
       name: "Facebook", 
-      icon: "facebook", 
+      icon: FacebookIcon, 
       url: "#", 
       bg: "bg-blue-600" 
     },
     { 
       name: "TikTok", 
-      icon: "tiktok", 
+      icon: TikTokIcon, 
       url: "#", 
       bg: "bg-black" 
     },
     { 
       name: "YouTube", 
-      icon: "youtube", 
+      icon: YouTubeIcon, 
       url: "#", 
       bg: "bg-red-600" 
     }
@@ -162,17 +163,17 @@ export default function Contact() {
                 <CardTitle className="text-2xl text-gray-800">Siga-nos</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex space-x-4">
+                <div className="flex flex-wrap gap-3">
                   {socialMedia.map((social, index) => (
                     <Button
                       key={index}
                       variant="ghost"
                       size="lg"
-                      className={`${social.bg} text-white p-4 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
+                      className={`${social.bg} text-white p-3 sm:p-4 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex-shrink-0`}
                       onClick={() => window.open(social.url, '_blank')}
                       aria-label={`Seguir no ${social.name}`}
                     >
-                      <i className={`fab fa-${social.icon} text-xl`}></i>
+                      <social.icon size={18} />
                     </Button>
                   ))}
                 </div>

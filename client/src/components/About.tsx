@@ -44,23 +44,23 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Foto profissional da Hadassa */}
-            <div className="relative">
+            <div className="relative order-2 lg:order-1">
               {/* SUBSTITUIR: Foto profissional real da Hadassa */}
               <img 
                 src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=1000" 
                 alt="Hadassa - Esteticista Profissional" 
-                className="rounded-2xl shadow-xl w-full h-auto object-cover"
+                className="rounded-2xl shadow-xl w-full h-auto object-cover max-h-[500px] sm:max-h-[600px] lg:max-h-none"
                 loading="lazy"
               />
             </div>
             
             {/* Biografia e informações */}
-            <div className="space-y-6">
+            <div className="space-y-6 order-1 lg:order-2">
               <div className="space-y-4">
-                <h3 className="text-2xl font-semibold text-gray-800">Minha História</h3>
-                <p className="text-gray-600 leading-relaxed">
+                <h3 className="text-xl sm:text-2xl font-semibold text-foreground">Minha História</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                   Com mais de 8 anos de experiência em estética avançada, dedico-me a proporcionar 
                   tratamentos personalizados que respeitam a individualidade de cada cliente. 
                   Formada em Estética e Cosmética, estou sempre em busca das técnicas mais inovadoras.
@@ -68,14 +68,14 @@ export default function About() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-2xl font-semibold text-gray-800">Missão & Valores</h3>
+                <h3 className="text-xl sm:text-2xl font-semibold text-foreground">Missão & Valores</h3>
                 <div className="space-y-3">
                   {values.map((value, index) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <value.icon className="text-primary mt-1 h-5 w-5 flex-shrink-0" />
+                      <value.icon className="text-primary mt-1 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
                       <div>
-                        <p className="text-gray-600">
-                          <strong className="text-gray-800">{value.title}:</strong> {value.description}
+                        <p className="text-muted-foreground text-sm sm:text-base">
+                          <strong className="text-foreground">{value.title}:</strong> {value.description}
                         </p>
                       </div>
                     </div>
@@ -84,9 +84,9 @@ export default function About() {
               </div>
 
               {/* Certificações */}
-              <div className="bg-neutral-soft p-6 rounded-2xl">
-                <h4 className="font-semibold text-gray-800 mb-3">Certificações & Especializações</h4>
-                <div className="space-y-2 text-sm text-gray-600">
+              <div className="bg-neutral-soft p-4 sm:p-6 rounded-2xl">
+                <h4 className="font-semibold text-foreground mb-3 text-sm sm:text-base">Certificações & Especializações</h4>
+                <div className="space-y-2 text-xs sm:text-sm text-muted-foreground">
                   {certifications.map((cert, index) => (
                     <p key={index}>• {cert}</p>
                   ))}

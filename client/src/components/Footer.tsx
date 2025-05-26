@@ -1,5 +1,6 @@
 import { scrollToSection } from "@/lib/utils";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { InstagramIcon, FacebookIcon, WhatsAppIcon, TikTokIcon } from "@/components/ui/social-icons";
 
 /**
  * Componente Footer - Rodapé com links e informações
@@ -18,10 +19,10 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: 'instagram', url: '#', ariaLabel: 'Instagram' },
-    { icon: 'facebook', url: '#', ariaLabel: 'Facebook' },
-    { icon: 'whatsapp', url: '#', ariaLabel: 'WhatsApp' },
-    { icon: 'tiktok', url: '#', ariaLabel: 'TikTok' }
+    { icon: InstagramIcon, url: '#', ariaLabel: 'Instagram' },
+    { icon: FacebookIcon, url: '#', ariaLabel: 'Facebook' },
+    { icon: WhatsAppIcon, url: '#', ariaLabel: 'WhatsApp' },
+    { icon: TikTokIcon, url: '#', ariaLabel: 'TikTok' }
   ];
 
   const contactData = [
@@ -65,7 +66,7 @@ export default function Footer() {
                   className="text-gray-300 hover:text-primary transition-colors duration-300"
                   aria-label={social.ariaLabel}
                 >
-                  <i className={`fab fa-${social.icon} text-xl`}></i>
+                  <social.icon size={20} />
                 </button>
               ))}
             </div>

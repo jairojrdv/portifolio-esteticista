@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { X, Expand } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { InstagramIcon, FacebookIcon, TikTokIcon } from "@/components/ui/social-icons";
 
 /**
  * Componente Gallery - Grid de fotos dos trabalhos
@@ -54,19 +55,19 @@ export default function Gallery() {
 
   const socialLinks = [
     { 
-      icon: "instagram", 
+      icon: InstagramIcon, 
       url: "#", 
       bg: "bg-gradient-to-br from-pink-500 to-purple-600",
       name: "Instagram"
     },
     { 
-      icon: "facebook", 
+      icon: FacebookIcon, 
       url: "#", 
       bg: "bg-blue-600",
       name: "Facebook"
     },
     { 
-      icon: "tiktok", 
+      icon: TikTokIcon, 
       url: "#", 
       bg: "bg-black",
       name: "TikTok"
@@ -129,7 +130,7 @@ export default function Gallery() {
                 onClick={() => window.open(social.url, '_blank')}
                 aria-label={`Seguir no ${social.name}`}
               >
-                <i className={`fab fa-${social.icon} text-xl`}></i>
+                <social.icon size={20} />
               </Button>
             ))}
           </div>
