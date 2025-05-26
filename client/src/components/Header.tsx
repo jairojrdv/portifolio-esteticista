@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Calendar } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
+import logoPath from "@assets/Ativo 2.png";
 
 /**
  * Componente Header - Navegação principal fixa
@@ -50,12 +51,16 @@ export default function Header() {
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo/Brand */}
+          {/* Logo */}
           <div 
-            className="text-2xl font-bold text-gray-800 cursor-pointer"
+            className="flex items-center cursor-pointer"
             onClick={() => handleMenuClick('home')}
           >
-            Hadassa <span className="text-primary">Estética</span>
+            <img 
+              src={logoPath} 
+              alt="Hadassa Estética - Logo" 
+              className="h-10 md:h-12 w-auto object-contain"
+            />
           </div>
           
           {/* Menu Desktop */}

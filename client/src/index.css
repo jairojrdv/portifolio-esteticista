@@ -1,35 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 :root {
-  /* Cores pastéis suaves para estética */
-  --background: 0 0% 100%; /* Branco puro */
-  --foreground: 222 84% 4.9%; /* Cinza muito escuro */
-  --muted: 210 40% 98%; /* Cinza muito claro */
-  --muted-foreground: 215.4 16.3% 46.9%; /* Cinza médio */
-  --popover: 0 0% 100%; /* Branco */
-  --popover-foreground: 222 84% 4.9%; /* Cinza escuro */
-  --card: 0 0% 100%; /* Branco */
-  --card-foreground: 222 84% 4.9%; /* Cinza escuro */
-  --border: 214.3 31.8% 91.4%; /* Cinza claro */
-  --input: 214.3 31.8% 91.4%; /* Cinza claro */
-  --primary: 330 81% 60%; /* Rosa claro vibrante #F8BBD9 */
-  --primary-foreground: 210 40% 98%; /* Branco suave */
-  --secondary: 270 50% 85%; /* Lilás suave #E1BEE7 */
-  --secondary-foreground: 222 47.4% 11.2%; /* Cinza escuro */
-  --accent: 120 40% 80%; /* Verde claro suave #B8E6B8 */
-  --accent-foreground: 222 47.4% 11.2%; /* Cinza escuro */
-  --destructive: 0 84.2% 60.2%; /* Vermelho */
-  --destructive-foreground: 210 40% 98%; /* Branco */
-  --ring: 330 81% 60%; /* Rosa para focus */
-  --radius: 1rem; /* Bordas mais arredondadas */
-  
-  /* Cores customizadas para o tema */
-  --neutral: 45 25% 95%; /* Bege suave #F5F5DC */
-  --baby-blue: 200 100% 95%; /* Azul bebê #E6F3FF */
+  /* Nova paleta de cores - tons terrosos e elegantes */
+  --background: 40 24% 96%; /* #F6ECEA - Fundo principal rosa suave */
+  --foreground: 28 17% 35%; /* #8C7161 - Texto principal marrom */
+  --muted: 40 24% 98%; /* Mais claro que o background */
+  --muted-foreground: 28 17% 50%; /* Cinza marrom médio */
+  --popover: 40 24% 96%; /* Mesmo que background */
+  --popover-foreground: 28 17% 35%; /* Mesmo que foreground */
+  --card: 0 0% 100%; /* Branco para cards */
+  --card-foreground: 28 17% 35%; /* Texto dos cards */
+  --border: 35 25% 85%; /* #D9C69D - Bege dourado para bordas */
+  --input: 35 25% 85%; /* Mesmo que border */
+  --primary: 35 25% 70%; /* #D9C69D - Cor principal bege dourado */
+  --primary-foreground: 28 17% 25%; /* Texto escuro sobre primário */
+  --secondary: 33 19% 77%; /* #C6AFA2 - Bege rosado secundário */
+  --secondary-foreground: 28 17% 25%; /* Texto escuro */
+  --accent: 28 17% 50%; /* #8C7161 - Marrom para accent */
+  --accent-foreground: 40 24% 96%; /* Texto claro sobre accent */
+  --destructive: 0 84.2% 60.2%; /* Vermelho para erros */
+  --destructive-foreground: 0 0% 100%; /* Branco */
+  --ring: 35 25% 70%; /* Mesmo que primary para focus */
+  --radius: 1rem; /* Bordas arredondadas */
 }
 
 .dark {
@@ -61,34 +57,35 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'GRANDEURS', 'Montserrat', sans-serif;
+    font-weight: 400;
   }
 }
 
 @layer utilities {
-  /* Cores customizadas para uso direto */
+  /* Cores customizadas baseadas na nova paleta */
   .bg-primary-soft {
-    background-color: hsl(330 81% 85%);
+    background-color: hsl(35 25% 85%);
   }
   
   .bg-secondary-soft {
-    background-color: hsl(270 50% 90%);
+    background-color: hsl(33 19% 85%);
   }
   
   .bg-accent-soft {
-    background-color: hsl(120 40% 90%);
+    background-color: hsl(28 17% 70%);
   }
   
   .bg-neutral-soft {
-    background-color: hsl(45 25% 98%);
+    background-color: hsl(40 24% 98%);
   }
   
-  .bg-baby-blue-soft {
-    background-color: hsl(200 100% 98%);
+  .bg-warm-beige {
+    background-color: hsl(35 25% 85%);
   }
 
   /* Animações suaves */
