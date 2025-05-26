@@ -14,8 +14,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER || 'seu-email@gmail.com',
-      pass: process.env.EMAIL_PASS || 'sua-senha-app'
+      user: 'jairo.jr.dev.@gmail.com',
+      pass: process.env.EMAIL_PASS || 'sua-senha-app-aqui'
     }
   });
 
