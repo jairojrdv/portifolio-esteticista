@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Cores pastéis suaves para estética */
+  --background: 0 0% 100%; /* Branco puro */
+  --foreground: 222 84% 4.9%; /* Cinza muito escuro */
+  --muted: 210 40% 98%; /* Cinza muito claro */
+  --muted-foreground: 215.4 16.3% 46.9%; /* Cinza médio */
+  --popover: 0 0% 100%; /* Branco */
+  --popover-foreground: 222 84% 4.9%; /* Cinza escuro */
+  --card: 0 0% 100%; /* Branco */
+  --card-foreground: 222 84% 4.9%; /* Cinza escuro */
+  --border: 214.3 31.8% 91.4%; /* Cinza claro */
+  --input: 214.3 31.8% 91.4%; /* Cinza claro */
+  --primary: 330 81% 60%; /* Rosa claro vibrante #F8BBD9 */
+  --primary-foreground: 210 40% 98%; /* Branco suave */
+  --secondary: 270 50% 85%; /* Lilás suave #E1BEE7 */
+  --secondary-foreground: 222 47.4% 11.2%; /* Cinza escuro */
+  --accent: 120 40% 80%; /* Verde claro suave #B8E6B8 */
+  --accent-foreground: 222 47.4% 11.2%; /* Cinza escuro */
+  --destructive: 0 84.2% 60.2%; /* Vermelho */
+  --destructive-foreground: 210 40% 98%; /* Branco */
+  --ring: 330 81% 60%; /* Rosa para focus */
+  --radius: 1rem; /* Bordas mais arredondadas */
+  
+  /* Cores customizadas para o tema */
+  --neutral: 45 25% 95%; /* Bege suave #F5F5DC */
+  --baby-blue: 200 100% 95%; /* Azul bebê #E6F3FF */
+}
+
+.dark {
+  --background: 222 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --popover: 222 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --card: 222 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --primary: 330 81% 60%;
+  --primary-foreground: 222 47.4% 11.2%;
+  --secondary: 270 50% 85%;
+  --secondary-foreground: 210 40% 98%;
+  --accent: 120 40% 80%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 330 81% 60%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  /* Cores customizadas para uso direto */
+  .bg-primary-soft {
+    background-color: hsl(330 81% 85%);
+  }
+  
+  .bg-secondary-soft {
+    background-color: hsl(270 50% 90%);
+  }
+  
+  .bg-accent-soft {
+    background-color: hsl(120 40% 90%);
+  }
+  
+  .bg-neutral-soft {
+    background-color: hsl(45 25% 98%);
+  }
+  
+  .bg-baby-blue-soft {
+    background-color: hsl(200 100% 98%);
+  }
+
+  /* Animações suaves */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  /* Scroll suave */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Personalização do scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
