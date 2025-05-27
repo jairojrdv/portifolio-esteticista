@@ -94,34 +94,34 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-12 max-w-7xl mx-auto">
           {/* Formulário de agendamento */}
-          <div className="order-2 lg:order-1">
+          <div className="order-2 lg:order-1 w-full max-w-full">
             <AppointmentForm />
           </div>
 
           {/* Informações de contato */}
-          <div className="space-y-6 lg:space-y-8 order-1 lg:order-2">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8 order-1 lg:order-2 w-full max-w-full">
             {/* Contato direto */}
-            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg sm:text-xl lg:text-2xl text-foreground">Contato Direto</CardTitle>
+            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl w-full max-w-full overflow-hidden">
+              <CardHeader className="pb-3 px-3 sm:px-4 lg:px-6">
+                <CardTitle className="text-base sm:text-lg lg:text-xl xl:text-2xl text-foreground">Contato Direto</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4 sm:space-y-6">
+              <CardContent className="space-y-3 sm:space-y-4 lg:space-y-6 px-3 sm:px-4 lg:px-6">
                 {contactInfo.map((contact, index) => (
-                  <div key={index} className="flex items-start sm:items-center space-x-3 sm:space-x-4">
-                    <div className={`${contact.bgColor} p-2 sm:p-3 rounded-2xl flex-shrink-0`}>
-                      <contact.icon className={`${contact.iconColor} h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6`} />
+                  <div key={index} className="flex items-start space-x-2 sm:space-x-3 lg:space-x-4">
+                    <div className={`${contact.bgColor} p-1.5 sm:p-2 lg:p-3 rounded-xl lg:rounded-2xl flex-shrink-0`}>
+                      <contact.icon className={`${contact.iconColor} h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 xl:h-6 xl:w-6`} />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-foreground text-sm sm:text-base">{contact.title}</p>
+                    <div className="flex-1 min-w-0 overflow-hidden">
+                      <p className="font-semibold text-foreground text-xs sm:text-sm lg:text-base">{contact.title}</p>
                       <Button
                         variant="link"
-                        className="text-primary hover:text-primary/80 transition-colors p-0 h-auto font-normal text-xs sm:text-sm text-left"
+                        className="text-primary hover:text-primary/80 transition-colors p-0 h-auto font-normal text-xs sm:text-sm text-left w-full justify-start"
                         onClick={contact.action}
                       >
                         {contact.content.split('\n').map((line, i) => (
-                          <span key={i} className="block break-words">
+                          <span key={i} className="block break-words truncate w-full">
                             {line}
                           </span>
                         ))}
@@ -133,49 +133,48 @@ export default function Contact() {
             </Card>
 
             {/* Horário de funcionamento */}
-            <Card className="bg-gradient-to-br from-accent/5 to-warm-beige shadow-lg border-0 rounded-2xl">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg sm:text-xl lg:text-2xl text-foreground flex items-center">
-                  <Clock className="mr-2 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-primary" />
-                  Horário de Funcionamento
+            <Card className="bg-gradient-to-br from-accent/5 to-warm-beige shadow-lg border-0 rounded-2xl w-full max-w-full overflow-hidden">
+              <CardHeader className="pb-3 px-3 sm:px-4 lg:px-6">
+                <CardTitle className="text-base sm:text-lg lg:text-xl xl:text-2xl text-foreground flex items-center">
+                  <Clock className="mr-2 h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 xl:h-6 xl:w-6 text-primary flex-shrink-0" />
+                  <span className="truncate">Horário de Funcionamento</span>
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="px-3 sm:px-4 lg:px-6">
                 <div className="space-y-2 sm:space-y-3">
                   {workingHours.map((schedule, index) => (
-                    <div key={index} className="flex justify-between items-center">
-                      <span className="text-muted-foreground text-sm sm:text-base">{schedule.day}</span>
-                      <span className="font-semibold text-foreground text-sm sm:text-base">{schedule.hours}</span>
+                    <div key={index} className="flex justify-between items-center gap-2">
+                      <span className="text-muted-foreground text-xs sm:text-sm lg:text-base flex-shrink-0">{schedule.day}</span>
+                      <span className="font-semibold text-foreground text-xs sm:text-sm lg:text-base text-right">{schedule.hours}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-white rounded-xl">
-                  <p className="text-xs sm:text-sm text-muted-foreground text-center flex items-center justify-center">
-                    <Info className="text-primary mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
-                    <span>Atendimento apenas com agendamento prévio</span>
+                <div className="mt-3 sm:mt-4 lg:mt-6 p-2 sm:p-3 lg:p-4 bg-white rounded-xl">
+                  <p className="text-xs lg:text-sm text-muted-foreground text-center flex items-center justify-center">
+                    <Info className="text-primary mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                    <span className="break-words">Atendimento apenas com agendamento prévio</span>
                   </p>
                 </div>
               </CardContent>
             </Card>
 
             {/* Redes sociais */}
-            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg sm:text-xl lg:text-2xl text-foreground">Siga-nos</CardTitle>
+            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl w-full max-w-full overflow-hidden">
+              <CardHeader className="pb-3 px-3 sm:px-4 lg:px-6">
+                <CardTitle className="text-base sm:text-lg lg:text-xl xl:text-2xl text-foreground">Siga-nos</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3">
+              <CardContent className="px-3 sm:px-4 lg:px-6">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   {socialMedia.map((social, index) => (
                     <Button
                       key={index}
                       variant="ghost"
-                      size="lg"
-                      className={`${social.bg} text-white p-3 sm:p-4 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex-shrink-0 w-full sm:w-auto`}
+                      className={`${social.bg} text-white p-2 sm:p-3 lg:p-4 rounded-xl lg:rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-full aspect-square flex items-center justify-center`}
                       onClick={() => window.open(social.url, '_blank')}
                       aria-label={`Seguir no ${social.name}`}
                     >
-                      <social.icon size={16} className="sm:w-[18px] sm:h-[18px]" />
+                      <social.icon size={14} className="sm:w-4 sm:h-4 lg:w-[18px] lg:h-[18px]" />
                     </Button>
                   ))}
                 </div>

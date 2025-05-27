@@ -57,10 +57,10 @@ export default function AppointmentForm() {
 
   const onSubmit = async (data: AppointmentFormData) => {
     setIsSubmitting(true);
-    
+
     try {
       console.log("Enviando dados do agendamento:", data);
-      
+
       const response = await fetch("/api/appointments", {
         method: "POST",
         headers: {
@@ -75,12 +75,12 @@ export default function AppointmentForm() {
 
       const result = await response.json();
       console.log("Resposta do servidor:", result);
-      
+
       toast({
         title: "Agendamento enviado!",
         description: "Entraremos em contato em até 24 horas para confirmar sua consulta.",
       });
-      
+
       form.reset();
     } catch (error) {
       console.error("Erro ao enviar agendamento:", error);
@@ -116,14 +116,14 @@ export default function AppointmentForm() {
                       <Input 
                         {...field}
                         placeholder="Seu nome completo"
-                        className="border-border rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm sm:text-base"
+                        className="border-border rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm w-full"
                       />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              
+
               {/* Telefone */}
               <FormField
                 control={form.control}
@@ -138,7 +138,7 @@ export default function AppointmentForm() {
                         {...field}
                         type="tel"
                         placeholder="(11) 99999-9999"
-                        className="border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                        className="border-gray-200 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm w-full"
                       />
                     </FormControl>
                     <FormMessage />
@@ -162,14 +162,14 @@ export default function AppointmentForm() {
                         {...field}
                         type="email"
                         placeholder="seu@email.com"
-                        className="border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                        className="border-gray-200 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm w-full"
                       />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              
+
               {/* Data preferida */}
               <FormField
                 control={form.control}
@@ -183,7 +183,7 @@ export default function AppointmentForm() {
                       <Input 
                         {...field}
                         type="date"
-                        className="border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                        className="border-gray-200 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm w-full"
                       />
                     </FormControl>
                     <FormMessage />
@@ -203,7 +203,7 @@ export default function AppointmentForm() {
                   </FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl>
-                      <SelectTrigger className="border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary">
+                      <SelectTrigger className="border-gray-200 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm w-full">
                         <SelectValue placeholder="Selecione um serviço" />
                       </SelectTrigger>
                     </FormControl>
@@ -234,38 +234,13 @@ export default function AppointmentForm() {
                       {...field}
                       rows={4}
                       placeholder="Conte-nos um pouco sobre suas necessidades e expectativas..."
-                      className="border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none"
+                      className="border-gray-200 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none text-sm w-full"
                     />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-
-            {/* Botão de teste de email */}
-            <Button 
-              type="button"
-              onClick={async () => {
-                try {
-                  const response = await fetch("/api/test-email", { method: "POST" });
-                  const result = await response.json();
-                  toast({
-                    title: response.ok ? "Email teste enviado!" : "Erro no teste",
-                    description: result.message,
-                    variant: response.ok ? "default" : "destructive"
-                  });
-                } catch (error) {
-                  toast({
-                    title: "Erro no teste",
-                    description: "Falha ao testar email",
-                    variant: "destructive"
-                  });
-                }
-              }}
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-2xl font-semibold mb-4"
-            >
-              🧪 Testar Email
-            </Button>
 
             {/* Botão de envio */}
             <Button 
