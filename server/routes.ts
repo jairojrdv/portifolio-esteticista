@@ -17,11 +17,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     secure: false,
     auth: {
       user: "jairo.jr.dev@gmail.com",
-      pass: "cotm omwc hblm aala",
+      pass: "ezoa gdlj iiwp paiq",
     },
     tls: {
-      rejectUnauthorized: false
-    }
+      rejectUnauthorized: false,
+    },
   });
 
   // Verificar conexão do email
@@ -57,7 +57,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(200).json({ message: "Email de teste enviado com sucesso!" });
     } catch (error) {
       console.error("❌ Erro ao enviar email de teste:", error);
-      res.status(500).json({ message: "Erro ao enviar email de teste", error: error.message });
+      res
+        .status(500)
+        .json({
+          message: "Erro ao enviar email de teste",
+          error: error.message,
+        });
     }
   });
 
