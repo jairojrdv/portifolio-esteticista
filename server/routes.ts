@@ -15,16 +15,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
     service: "gmail",
     auth: {
       user: "jairo.jr.dev@gmail.com",
-      pass: "cotm omwc hblm aala",
+      pass: "cotmomwchblmaala",
     },
   });
 
   // Verificar conexão do email
   transporter.verify((error, success) => {
     if (error) {
-      console.log('❌ Erro na configuração do email:', error);
+      console.log("❌ Erro na configuração do email:", error);
     } else {
-      console.log('✅ Servidor de email configurado corretamente');
+      console.log("✅ Servidor de email configurado corretamente");
     }
   });
 
@@ -101,8 +101,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Enviar email
       await transporter.sendMail({
-        from: process.env.EMAIL_USER || "noreply@hadassaestetica.com.br",
-        to: "jairo.jr.dev.@gmail.com",
+        from: process.env.EMAIL_USER || "jairo.jr.dev@gmail.com",
+        to: "jairo.jr.dev@gmail.com",
         subject: `🌸 Novo Agendamento - ${nome}`,
         html: emailHtml,
       });
