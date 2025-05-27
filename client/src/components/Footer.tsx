@@ -46,15 +46,15 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-800 text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 lg:px-8 xl:px-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           
           {/* Logo e descrição */}
-          <div className="md:col-span-2">
-            <div className="text-2xl font-bold mb-4">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="text-xl sm:text-2xl font-bold mb-4">
               Hadassa <span className="text-primary">Estética</span>
             </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <p className="text-gray-300 mb-6 leading-relaxed text-sm sm:text-base">
               Cuidados estéticos profissionais para realçar sua beleza natural. 
               Transforme sua autoestima com tratamentos personalizados e de qualidade.
             </p>
@@ -63,10 +63,10 @@ export default function Footer() {
                 <button
                   key={index}
                   onClick={() => window.open(social.url, '_blank')}
-                  className="text-gray-300 hover:text-primary transition-colors duration-300"
+                  className="text-gray-300 hover:text-primary transition-colors duration-300 p-2 hover:bg-gray-700 rounded-lg"
                   aria-label={social.ariaLabel}
                 >
-                  <social.icon size={20} />
+                  <social.icon size={18} />
                 </button>
               ))}
             </div>
@@ -74,13 +74,13 @@ export default function Footer() {
 
           {/* Links rápidos */}
           <div>
-            <h4 className="font-semibold text-lg mb-4">Links Rápidos</h4>
+            <h4 className="font-semibold text-base sm:text-lg mb-4 text-primary">Links Rápidos</h4>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <button
                     onClick={() => handleLinkClick(link.href)}
-                    className="text-gray-300 hover:text-primary transition-colors duration-300 text-left"
+                    className="text-gray-300 hover:text-primary transition-colors duration-300 text-left text-sm sm:text-base"
                   >
                     {link.label}
                   </button>
@@ -91,7 +91,7 @@ export default function Footer() {
 
           {/* Contato */}
           <div>
-            <h4 className="font-semibold text-lg mb-4">Contato</h4>
+            <h4 className="font-semibold text-base sm:text-lg mb-4 text-primary">Contato</h4>
             <div className="space-y-3 text-gray-300">
               {contactData.map((contact, index) => (
                 <div key={index} className="flex items-start">

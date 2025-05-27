@@ -64,7 +64,7 @@ export default function Header() {
           </div>
           
           {/* Menu Desktop */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden lg:flex space-x-8">
             {menuItems.map((item) => (
               <button
                 key={item.href}
@@ -79,7 +79,7 @@ export default function Header() {
           {/* Botão CTA Desktop */}
           <Button 
             onClick={handleScheduleClick}
-            className="hidden md:flex bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+            className="hidden lg:flex bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <Calendar className="mr-2 h-4 w-4" />
             Agendar Consulta
@@ -88,7 +88,7 @@ export default function Header() {
           {/* Botão Menu Mobile */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-gray-700 p-2"
+            className="lg:hidden text-gray-700 p-2"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -97,7 +97,7 @@ export default function Header() {
 
         {/* Menu Mobile */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-gray-200">
+          <div className="lg:hidden mt-4 pb-4 border-t border-gray-200">
             <div className="flex flex-col space-y-4 pt-4">
               {menuItems.map((item) => (
                 <button
@@ -110,7 +110,7 @@ export default function Header() {
               ))}
               <Button 
                 onClick={handleScheduleClick}
-                className="bg-primary hover:bg-primary/90 text-white rounded-2xl mt-4"
+                className="bg-primary hover:bg-primary/90 text-white rounded-2xl mt-6"
               >
                 <Calendar className="mr-2 h-4 w-4" />
                 Agendar Consulta

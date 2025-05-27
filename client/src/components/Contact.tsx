@@ -94,32 +94,34 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Formulário de agendamento */}
-          <AppointmentForm />
+          <div className="order-2 lg:order-1">
+            <AppointmentForm />
+          </div>
 
           {/* Informações de contato */}
-          <div className="space-y-8">
+          <div className="space-y-6 lg:space-y-8 order-1 lg:order-2">
             {/* Contato direto */}
             <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl">
-              <CardHeader>
-                <CardTitle className="text-2xl text-gray-800">Contato Direto</CardTitle>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg sm:text-xl lg:text-2xl text-foreground">Contato Direto</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-4 sm:space-y-6">
                 {contactInfo.map((contact, index) => (
-                  <div key={index} className="flex items-center space-x-4">
-                    <div className={`${contact.bgColor} p-3 rounded-2xl`}>
-                      <contact.icon className={`${contact.iconColor} h-6 w-6`} />
+                  <div key={index} className="flex items-start sm:items-center space-x-3 sm:space-x-4">
+                    <div className={`${contact.bgColor} p-2 sm:p-3 rounded-2xl flex-shrink-0`}>
+                      <contact.icon className={`${contact.iconColor} h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6`} />
                     </div>
-                    <div className="flex-1">
-                      <p className="font-semibold text-gray-800">{contact.title}</p>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold text-foreground text-sm sm:text-base">{contact.title}</p>
                       <Button
                         variant="link"
-                        className="text-primary hover:text-primary/80 transition-colors p-0 h-auto font-normal"
+                        className="text-primary hover:text-primary/80 transition-colors p-0 h-auto font-normal text-xs sm:text-sm text-left"
                         onClick={contact.action}
                       >
                         {contact.content.split('\n').map((line, i) => (
-                          <span key={i} className="block">
+                          <span key={i} className="block break-words">
                             {line}
                           </span>
                         ))}
@@ -131,27 +133,27 @@ export default function Contact() {
             </Card>
 
             {/* Horário de funcionamento */}
-            <Card className="bg-gradient-to-br from-accent/5 to-baby-blue-soft shadow-lg border-0 rounded-2xl">
-              <CardHeader>
-                <CardTitle className="text-2xl text-gray-800 flex items-center">
-                  <Clock className="mr-2 h-6 w-6 text-primary" />
+            <Card className="bg-gradient-to-br from-accent/5 to-warm-beige shadow-lg border-0 rounded-2xl">
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg sm:text-xl lg:text-2xl text-foreground flex items-center">
+                  <Clock className="mr-2 h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-primary" />
                   Horário de Funcionamento
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {workingHours.map((schedule, index) => (
                     <div key={index} className="flex justify-between items-center">
-                      <span className="text-gray-700">{schedule.day}</span>
-                      <span className="font-semibold text-gray-800">{schedule.hours}</span>
+                      <span className="text-muted-foreground text-sm sm:text-base">{schedule.day}</span>
+                      <span className="font-semibold text-foreground text-sm sm:text-base">{schedule.hours}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-6 p-4 bg-white rounded-xl">
-                  <p className="text-sm text-gray-600 text-center flex items-center justify-center">
-                    <Info className="text-primary mr-2 h-4 w-4" />
-                    Atendimento apenas com agendamento prévio
+                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-white rounded-xl">
+                  <p className="text-xs sm:text-sm text-muted-foreground text-center flex items-center justify-center">
+                    <Info className="text-primary mr-2 h-3 w-3 sm:h-4 sm:w-4 flex-shrink-0" />
+                    <span>Atendimento apenas com agendamento prévio</span>
                   </p>
                 </div>
               </CardContent>
@@ -159,21 +161,21 @@ export default function Contact() {
 
             {/* Redes sociais */}
             <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl">
-              <CardHeader>
-                <CardTitle className="text-2xl text-gray-800">Siga-nos</CardTitle>
+              <CardHeader className="pb-4">
+                <CardTitle className="text-lg sm:text-xl lg:text-2xl text-foreground">Siga-nos</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-3">
+                <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3">
                   {socialMedia.map((social, index) => (
                     <Button
                       key={index}
                       variant="ghost"
                       size="lg"
-                      className={`${social.bg} text-white p-3 sm:p-4 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex-shrink-0`}
+                      className={`${social.bg} text-white p-3 sm:p-4 rounded-2xl hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex-shrink-0 w-full sm:w-auto`}
                       onClick={() => window.open(social.url, '_blank')}
                       aria-label={`Seguir no ${social.name}`}
                     >
-                      <social.icon size={18} />
+                      <social.icon size={16} className="sm:w-[18px] sm:h-[18px]" />
                     </Button>
                   ))}
                 </div>
