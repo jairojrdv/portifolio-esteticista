@@ -15,8 +15,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     service: "gmail",
     auth: {
       user: "jairo.jr.dev@gmail.com",
-      pass: process.env.EMAIL_PASS || "cotm omwc hblm aala",
+      pass: "cotm omwc hblm aala",
     },
+  });
+
+  // Verificar conexão do email
+  transporter.verify((error, success) => {
+    if (error) {
+      console.log('❌ Erro na configuração do email:', error);
+    } else {
+      console.log('✅ Servidor de email configurado corretamente');
+    }
   });
 
   // Endpoint para receber solicitações de agendamento
