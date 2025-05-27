@@ -24,20 +24,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     },
   });
 
-  // Verificar conexão do email
-  transporter.verify((error, success) => {
-    if (error) {
-      console.log("❌ Erro na configuração do email:", error);
-    } else {
-      console.log("✅ Servidor de email configurado corretamente");
-    }
-  });
-
   // Endpoint de teste para email
   app.post("/api/test-email", async (req, res) => {
     try {
-      console.log("🧪 Testando envio de email...");
-
       await transporter.sendMail({
         from: "jairo.jr.dev@gmail.com",
         to: "jairo.jr.dev@gmail.com",
@@ -52,8 +41,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
           </div>
         `,
       });
-
-      console.log("✅ Email de teste enviado com sucesso!");
       res.status(200).json({ message: "Email de teste enviado com sucesso!" });
     } catch (error) {
       console.error("❌ Erro ao enviar email de teste:", error);
@@ -142,9 +129,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
         subject: `🌸 Novo Agendamento - ${nome}`,
         html: emailHtml,
       });
-
-      // Log da solicitação
-      console.log("Nova solicitação de agendamento:", appointment);
 
       // Resposta de sucesso
       res.status(200).json({

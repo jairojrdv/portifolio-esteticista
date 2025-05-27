@@ -59,8 +59,6 @@ export default function AppointmentForm() {
     setIsSubmitting(true);
 
     try {
-      console.log("Enviando dados do agendamento:", data);
-
       const response = await fetch("/api/appointments", {
         method: "POST",
         headers: {
@@ -74,7 +72,6 @@ export default function AppointmentForm() {
       }
 
       const result = await response.json();
-      console.log("Resposta do servidor:", result);
 
       toast({
         title: "Agendamento enviado!",
