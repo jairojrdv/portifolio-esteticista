@@ -22,7 +22,7 @@ export default function Hero() {
       id="home" 
       className="pt-20 min-h-screen flex items-center bg-gradient-to-br from-neutral-soft to-warm-beige"
     >
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 lg:px-8 xl:px-12 py-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Conteúdo textual do hero */}
           <div className="space-y-6 animate-slide-up order-2 lg:order-1">

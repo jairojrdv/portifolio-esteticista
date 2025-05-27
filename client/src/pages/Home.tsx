@@ -6,6 +6,7 @@ import Testimonials from "@/components/Testimonials";
 import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 /**
  * Página principal do portfólio da Hadassa
@@ -37,6 +38,9 @@ export default function Home() {
       
       {/* Rodapé */}
       <Footer />
+      
+      {/* Botão WhatsApp flutuante */}
+      <WhatsAppButton />
     </main>
   );
 }
