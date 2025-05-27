@@ -95,11 +95,11 @@ export default function AppointmentForm() {
   };
 
   return (
-    <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 shadow-lg border-0 rounded-2xl w-full max-w-full">
-      <CardHeader>
+    <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 shadow-lg border-0 rounded-2xl w-full max-w-full overflow-hidden">
+      <CardHeader className="px-4 sm:px-6">
         <CardTitle className="text-xl sm:text-2xl text-foreground">Agendar Consulta</CardTitle>
       </CardHeader>
-      <CardContent className="w-full max-w-full">
+      <CardContent className="w-full max-w-full px-4 sm:px-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-4">

@@ -17,7 +17,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     secure: false,
     auth: {
       user: "jairo.jr.dev@gmail.com",
-      pass: "ezoa gdlj iiwp paiq",
+      pass: "cotmomwchblmaala",
     },
     tls: {
       rejectUnauthorized: false,

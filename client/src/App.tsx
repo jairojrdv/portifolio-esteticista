@@ -11,13 +11,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <div className="min-h-screen bg-background w-full overflow-x-hidden">
+        <div className="min-h-screen bg-background w-full max-w-full overflow-x-hidden">
           <Home />
+          <FloatingWhatsApp />
         </div>
-        
-      <FloatingWhatsApp />
+      </TooltipProvider>
       <Toaster />
-    </TooltipProvider>
     </QueryClientProvider>
   );
 }
