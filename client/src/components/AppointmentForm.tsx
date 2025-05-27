@@ -59,10 +59,22 @@ export default function AppointmentForm() {
     setIsSubmitting(true);
     
     try {
-      // Simular envio - implementar integração real
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log("Enviando dados do agendamento:", data);
       
-      console.log("Dados do agendamento:", data);
+      const response = await fetch("/api/appointments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro ao enviar agendamento");
+      }
+
+      const result = await response.json();
+      console.log("Resposta do servidor:", result);
       
       toast({
         title: "Agendamento enviado!",
@@ -71,6 +83,7 @@ export default function AppointmentForm() {
       
       form.reset();
     } catch (error) {
+      console.error("Erro ao enviar agendamento:", error);
       toast({
         title: "Erro ao enviar",
         description: "Tente novamente ou entre em contato pelo WhatsApp.",
@@ -82,11 +95,11 @@ export default function AppointmentForm() {
   };
 
   return (
-    <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 shadow-lg border-0 rounded-2xl">
+    <Card className="bg-gradient-to-br from-primary/5 to-secondary/5 shadow-lg border-0 rounded-2xl w-full max-w-full">
       <CardHeader>
         <CardTitle className="text-xl sm:text-2xl text-foreground">Agendar Consulta</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="w-full max-w-full">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-4">
@@ -228,6 +241,31 @@ export default function AppointmentForm() {
                 </FormItem>
               )}
             />
+
+            {/* Botão de teste de email */}
+            <Button 
+              type="button"
+              onClick={async () => {
+                try {
+                  const response = await fetch("/api/test-email", { method: "POST" });
+                  const result = await response.json();
+                  toast({
+                    title: response.ok ? "Email teste enviado!" : "Erro no teste",
+                    description: result.message,
+                    variant: response.ok ? "default" : "destructive"
+                  });
+                } catch (error) {
+                  toast({
+                    title: "Erro no teste",
+                    description: "Falha ao testar email",
+                    variant: "destructive"
+                  });
+                }
+              }}
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-2xl font-semibold mb-4"
+            >
+              🧪 Testar Email
+            </Button>
 
             {/* Botão de envio */}
             <Button 

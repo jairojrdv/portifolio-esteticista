@@ -58,6 +58,17 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  /* Garantir que nenhum elemento ultrapasse a largura da tela */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   h1, h2, h3, h4, h5, h6 {

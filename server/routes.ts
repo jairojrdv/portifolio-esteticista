@@ -12,11 +12,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Configuração do transporter de email
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
     auth: {
       user: "jairo.jr.dev@gmail.com",
-      pass: "cotmomwchblmaala",
+      pass: "cotm omwc hblm aala",
     },
+    tls: {
+      rejectUnauthorized: false
+    }
   });
 
   // Verificar conexão do email
@@ -25,6 +30,34 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.log("❌ Erro na configuração do email:", error);
     } else {
       console.log("✅ Servidor de email configurado corretamente");
+    }
+  });
+
+  // Endpoint de teste para email
+  app.post("/api/test-email", async (req, res) => {
+    try {
+      console.log("🧪 Testando envio de email...");
+
+      await transporter.sendMail({
+        from: "jairo.jr.dev@gmail.com",
+        to: "jairo.jr.dev@gmail.com",
+        subject: "🧪 Teste de Email - Dra. Hadassa",
+        html: `
+          <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9;">
+            <div style="background-color: white; padding: 30px; border-radius: 10px;">
+              <h2 style="color: #8B5CF6;">🧪 Email de Teste</h2>
+              <p>Se você recebeu este email, a configuração está funcionando perfeitamente!</p>
+              <p><strong>Data/Hora:</strong> ${new Date().toLocaleString("pt-BR")}</p>
+            </div>
+          </div>
+        `,
+      });
+
+      console.log("✅ Email de teste enviado com sucesso!");
+      res.status(200).json({ message: "Email de teste enviado com sucesso!" });
+    } catch (error) {
+      console.error("❌ Erro ao enviar email de teste:", error);
+      res.status(500).json({ message: "Erro ao enviar email de teste", error: error.message });
     }
   });
 
